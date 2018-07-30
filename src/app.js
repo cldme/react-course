@@ -6,7 +6,7 @@ const app = {
     options: ['One', 'Two']
 };
 
-// JSX - JavaScript XML
+// JSX - JavaScript XML!
 const template = (
     <div>
         <h1>{app.title}</h1>
