@@ -23,10 +23,14 @@ var render = function render() {
             { onClick: onToggle },
             isVisible ? 'Hide details' : 'Show details'
         ),
-        React.createElement(
-            'p',
-            { style: { display: isVisible ? 'block' : 'none' } },
-            'Hey. These are some details you can now see!'
+        isVisible && React.createElement(
+            'div',
+            null,
+            React.createElement(
+                'p',
+                null,
+                'Hey. These are some details you can now see.'
+            )
         )
     );
 

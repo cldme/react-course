@@ -12,7 +12,11 @@ const render = () => {
         <div>
             <h1>Visibility Toggle</h1>
             <button onClick={onToggle}>{isVisible ? 'Hide details' : 'Show details'}</button>
-            <p style={{display: isVisible ? 'block' : 'none'}}>Hey. These are some details you can now see!</p>
+            {isVisible && (
+                <div>
+                    <p>Hey. These are some details you can now see.</p>
+                </div>
+            )}
         </div>
     );
 
