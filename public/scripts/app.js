@@ -21,8 +21,7 @@ var render = function render() {
         React.createElement(
             'button',
             { onClick: onToggle },
-            isVisible ? 'Hide' : 'Show',
-            ' details'
+            isVisible ? 'Hide details' : 'Show details'
         ),
         React.createElement(
             'p',
