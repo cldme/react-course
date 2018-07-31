@@ -1,17 +1,15 @@
-'use strict';
-
 console.log('App.js is running!');
 
-var app = {
+const app = {
     title: 'Indecision App',
     subtitle: 'Put your life in the hands of a computer',
     options: []
 };
 
-var onFormSubmit = function onFormSubmit(e) {
+const onFormSubmit = (e) => {
     e.preventDefault();
-
-    var option = e.target.elements.option.value;
+    
+    const option = e.target.elements.option.value;
 
     if (option) {
         app.options.push(option);
@@ -20,70 +18,36 @@ var onFormSubmit = function onFormSubmit(e) {
     }
 };
 
-var onRemoveAll = function onRemoveAll() {
+const onRemoveAll = () => {
     app.options = [];
     renderApp();
 };
 
-var onMakeDecision = function onMakeDecision() {
-    var randomNum = Math.floor(Math.random() * app.options.length);
-    var option = app.options[randomNum];
+const onMakeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length);
+    const option = app.options[randomNum];
     alert(option);
 };
 
-var appRoot = document.querySelector('#app');
+const appRoot = document.querySelector('#app');
 
-var renderApp = function renderApp() {
+const renderApp = () => {
     // JSX - JavaScript XML
-    var template = React.createElement(
-        'div',
-        null,
-        React.createElement(
-            'h1',
-            null,
-            app.title
-        ),
-        app.subtitle && React.createElement(
-            'p',
-            null,
-            app.subtitle
-        ),
-        React.createElement(
-            'p',
-            null,
-            app.options.length > 0 ? 'Here are your options' : 'No options'
-        ),
-        React.createElement(
-            'button',
-            { disabled: app.options.length === 0, onClick: onMakeDecision },
-            'What should I do?'
-        ),
-        React.createElement(
-            'button',
-            { onClick: onRemoveAll },
-            'Remove All'
-        ),
-        React.createElement(
-            'ul',
-            null,
-            app.options.map(function (item) {
-                return React.createElement(
-                    'li',
-                    { key: item },
-                    item
-                );
-            })
-        ),
-        React.createElement(
-            'form',
-            { onSubmit: onFormSubmit },
-            React.createElement('input', { type: 'text', name: 'option' }),
-            React.createElement(
-                'button',
-                null,
-                'Add Option'
-            )
-        )
+    const template = (
+        <div>
+            <h1>{app.title}</h1>
+            {app.subtitle && <p>{app.subtitle}</p>}
+            <p>{app.options.length > 0 ? 'Here are your options' : 'No options'}</p>
+            <button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
+            <button onClick={onRemoveAll}>Remove All</button>
+            <ul>
+                {app.options.map((item) => <li key={item}>{item}</li>)}
+            </ul>
+            <form onSubmit={onFormSubmit}>
+                <input type="text" name="option"/>
+                <button>Add Option</button>
+            </form>
+        </div>
     );
 
     ReactDOM.render(template, appRoot);
