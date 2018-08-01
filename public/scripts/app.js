@@ -163,9 +163,13 @@ var Options = function (_React$Component4) {
                     { onClick: this.props.handleDeleteOptions },
                     'Remove All'
                 ),
-                this.props.options.map(function (option) {
-                    return React.createElement(Option, { key: option, option: option });
-                })
+                React.createElement(
+                    'ul',
+                    null,
+                    this.props.options.map(function (option) {
+                        return React.createElement(Option, { key: option, option: option });
+                    })
+                )
             );
         }
     }]);
@@ -189,7 +193,7 @@ var Option = function (_React$Component5) {
                 'div',
                 null,
                 React.createElement(
-                    'p',
+                    'li',
                     null,
                     this.props.option
                 )

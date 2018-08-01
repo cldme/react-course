@@ -82,7 +82,9 @@ class Options extends React.Component {
         return (
             <div>
                 <button onClick={this.props.handleDeleteOptions}>Remove All</button>
-                {this.props.options.map((option) => <Option key={option} option={option}/>)}
+                <ul>
+                    {this.props.options.map((option) => <Option key={option} option={option}/>)}
+                </ul>
             </div>
         );
     }
@@ -92,7 +94,7 @@ class Option extends React.Component {
     render() {
         return (
             <div>
-                <p>{this.props.option}</p>
+                <li>{this.props.option}</li>
             </div>
         );
     }
