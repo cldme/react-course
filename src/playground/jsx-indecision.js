@@ -44,7 +44,7 @@ const renderApp = () => {
                 {app.options.map((item) => <li key={item}>{item}</li>)}
             </ul>
             <form onSubmit={onFormSubmit}>
-                <input type="text" name="option"/>
+                <input type='text' name='option'/>
                 <button>Add Option</button>
             </form>
         </div>
