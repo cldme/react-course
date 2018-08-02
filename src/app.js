@@ -23,7 +23,9 @@ class IndecisionApp extends React.Component {
             return 'This option already exists! Please enter different options.';
         }
 
-        this.setState((prevState) => ({ options: prevState.options.concat(option)}));
+        this.setState((prevState) => ({ 
+            options: prevState.options.concat(option)
+        }));
     }
     render() {
         const title = 'Indecision';
