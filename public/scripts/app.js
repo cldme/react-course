@@ -163,7 +163,7 @@ var Option = function Option(props) {
                 'button',
                 {
                     onClick: function onClick(e) {
-                        props.handleDeleteOption(props.option);
+                        return props.handleDeleteOption(props.option);
                     }
                 },
                 'remove'

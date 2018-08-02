@@ -14,9 +14,7 @@ class IndecisionApp extends React.Component {
     }
     handleDeleteOption(optionToRemove) {
         this.setState((prevState) => ({
-            options: prevState.options.filter((option) => {
-                return optionToRemove !== option;
-            })
+            options: prevState.options.filter((option) => optionToRemove !== option)
         }));
     }
     handlePick() {
@@ -103,9 +101,7 @@ const Option = (props) => {
             <li>
                 {props.option}
                 <button 
-                    onClick={(e) => {
-                        props.handleDeleteOption(props.option);
-                    }}
+                    onClick={(e) => props.handleDeleteOption(props.option)}
                 >
                     remove
                 </button>
